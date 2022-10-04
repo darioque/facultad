@@ -1,0 +1,27 @@
+?- regla1(2, 'Hugo Lenin', 8, Salto).
+Salto = 2.
+
+?- ?- regla2(2, 'Rafael Fregoso Cardenas', 'Sebastian Lerda').
+true.
+
+?- regla3_w.
+Competidor: Silvia Porras
+Competidor: Nelsi Alejandra Gonzalez
+Competidor: Guadalupe Luna
+Competidor: Rafael Fregoso Cardenas
+false.
+
+-alternativa
+?- regla3(Competidores).
+Competidores = 'Silvia Porras' ;
+Competidores = 'Nelsi Alejandra Gonzalez' ;
+Competidores = 'Guadalupe Luna' ;
+Competidores = 'Rafael Fregoso Cardenas' ;
+false.
+
+?- regla4(2,[105], Competidores).
+Competidores = 'Hugo Lenin' ;
+Competidores = 'Viviana Juarez'.
+
+?- regla5(LO).
+LO = [].

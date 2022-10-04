@@ -1,0 +1,42 @@
+| booking camarote hotel paqueteHotelero paqueteViaCrucero vuelo otroPaqueteViaCrucero camarote2|
+
+camarote := Camarote new.
+camarote2 := Camarote new.
+booking := Booking new.
+hotel := Hotel new.
+paqueteHotelero := PaqueteHotelero new.
+paqueteViaCrucero := PaqueteViaCrucero new.
+otroPaqueteViaCrucero := PaqueteViaCrucero new.
+vuelo := Vuelo new.
+
+
+camarote numero: 2;precio:100.50;reservado:false;categoria: 'turista'.
+camarote2 numero: 3;precio:200.50;reservado:false;categoria: 'turista'.
+
+hotel nombre: 'Sheraton';precio: 500.50;disponibilidad:10;categoria:'***'.
+
+vuelo nombre: 'AA';tiempo:10.
+
+paqueteHotelero vuelo: vuelo;hotel: hotel;nombre: 'Paquete Hotelero';ciudadOrigen: 'Cordoba';ciudadDestino: 'Bs As.';estadia: 10;precioBase: 200.
+
+otroPaqueteViaCrucero nombre: 'Otro Paquete de Crucero';ciudadOrigen: 'Cordoba';ciudadDestino: 'Bs As.';estadia: 10;precioBase: 200 ;nombreBarco: 'Titanic';addCamarote: camarote;addCamarote: camarote2.
+
+paqueteViaCrucero nombre: 'Paquete2';ciudadOrigen: 'Cordoba';ciudadDestino: 'Bs As.';estadia: 10;precioBase: 200 ;nombreBarco: 'Santa Maria';addCamarote: camarote;addCamarote: camarote2.
+
+booking addPaquete: paqueteHotelero.
+booking addPaquete: paqueteViaCrucero.
+booking addPaquete: otroPaqueteViaCrucero.
+
+Transcript clear.
+
+Transcript show: 'Vuelo: ', String cr, vuelo asString.
+Transcript show: 'Camarote: ', String cr, camarote asString.
+Transcript show: 'Hotel: ', String cr, hotel asString, hotel cantidadEstrellas asString.
+
+Transcript show: 'Paquete hotelero: ', String cr, paqueteHotelero asString, 'El costo del paquete es: $', paqueteHotelero calcularCosto asString.
+
+Transcript show: 'Paquete crucero: ', String cr, paqueteViaCrucero asString, 'El costo del paquete es: $', paqueteViaCrucero calcularCosto asString, String cr.
+
+Transcript show: 'Booking: ', String cr, booking asString, 'El monto total estimado es: ', booking calcularMontoTotalEstimado asString, String cr.
+Transcript show: (booking crucerosDisponibles: 'Cordoba' categoria: 'turista') asString, String cr. 
+Transcript show: 'Paquete dentro del presupuesto: ', String cr, (booking paqueteDentroDelPresupuesto: 5000) asString.
