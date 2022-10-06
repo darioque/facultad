@@ -31,8 +31,8 @@ listadoPrimosMenoresOIgualesQue n = [y | y <- [1..n], esPrimo y]
 
 factorizacion :: Int -> [Int]
 factorizacion 1 = []
-factorizacion n = if esPrimo num then num : factorizacion (n `div` num) else n : []
-				  where num  = head (tail (listaFactoresDivisiblesDe n))
+factorizacion n = let num = head (tail (listaFactoresDivisiblesDe n)) in 
+				  if esPrimo num then num : factorizacion (n `div` num) else n : []
 
 expansion :: [(Int, Int)] -> Int
 expansion [] = 1
