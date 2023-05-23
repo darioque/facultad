@@ -48,3 +48,11 @@ valores :: [Float] -> String -> Float -> Int
 valores [] cod valor = 0
 valores (x:xs) cod valor = if recargo cod == -1 then 0 else if (x + (x * recargo cod)) > valor then 1 + valores xs cod valor
                                                               else valores xs cod valor
+
+cambiarCaracter :: Char -> Char
+cambiarCaracter vocal = case vocal of
+                             'A' -> '9'
+                             'E' -> '8'
+                             'I' -> '7'
+                             'O' -> '6'
+                             'U' -> '5'

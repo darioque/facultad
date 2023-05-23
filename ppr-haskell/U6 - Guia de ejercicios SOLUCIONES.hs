@@ -1,23 +1,23 @@
--- 1. Definir la función esMultiploDe/2, que devuelve True si el segundo es múltiplo del primero.
+-- 1. Definir la funciï¿½n esMultiploDe/2, que devuelve True si el segundo es mï¿½ltiplo del primero.
 
 esMultiploDe::Integer->Integer->Bool
 esMultiploDe x y = mod(x) y ==0
 
-{-Otra forma de utilizar la funciòn 'mod'
+{-Otra forma de utilizar la funciï¿½n 'mod'
 esMultiploDe::Integer->Integer->Bool
 esMultiploDe x y = x `mod` y ==0
 -}
 
-{-2. Definir la función esBisiesto/1, indica si un año es bisiesto. (Un año es bisiesto si es 
+{-2. Definir la funciï¿½n esBisiesto/1, indica si un aï¿½o es bisiesto. (Un aï¿½o es bisiesto si es 
  divisible por 400 o es divisible por 4 pero no es divisible por 100)-}
 esBisiesto::Integer->Bool
 esBisiesto x = esMultiploDe x 400 || (esMultiploDe x 4 && not (esMultiploDe x 100)) 
 
-{-3.En una plantación de pinos, de cada árbol se conoce la altura expresada en cm. El peso de un pino
-se puede calcular a partir de la altura así: 3 kg x cm hasta 3 metros, 2 kg x cm arriba de los 3 metros.
-P.ej. 2 metros -> 600 kg, 5 metros -> 1300 kg. Los pinos se usan para llevarlos a una fábrica de
-muebles, a la que le sirven árboles de entre 400 y 1000 kilos, un pino fuera de este rango no le sirve
-a la fábrica.
+{-3.En una plantaciï¿½n de pinos, de cada ï¿½rbol se conoce la altura expresada en cm. El peso de un pino
+se puede calcular a partir de la altura asï¿½: 3 kg x cm hasta 3 metros, 2 kg x cm arriba de los 3 metros.
+P.ej. 2 metros -> 600 kg, 5 metros -> 1300 kg. Los pinos se usan para llevarlos a una fï¿½brica de
+muebles, a la que le sirven ï¿½rboles de entre 400 y 1000 kilos, un pino fuera de este rango no le sirve
+a la fï¿½brica.
 
 NOTA: los pinos se miden en cm.
 -}
@@ -38,7 +38,7 @@ esPesoUtil y = y>=400 && y<=1000
 sirvePino::Integer->Bool
 sirvePino x = esPesoUtil(pesoPino x)
 
-{- 4. Se necesita diseñar una función que permita determinar la cantidad de raíces reales de la ecuación
+{- 4. Se necesita diseï¿½ar una funciï¿½n que permita determinar la cantidad de raï¿½ces reales de la ecuaciï¿½n
 ax2 +bx+c = 0
 -}
 
@@ -48,3 +48,9 @@ raicesReales a b c
 	|discriminante > 0.0  = 2
 	|otherwise 	    = 0
 	where discriminante = b*b - 4*a*c
+
+-- generar una funcion que calcule el promedio entre los valores de una lista de numeros usando recursividad
+promedio::[Float]->Float
+promedio [] = 0
+promedio (x:xs) = (x + promedio xs) / fromIntegral(length(x:xs))
+

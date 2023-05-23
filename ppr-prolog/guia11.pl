@@ -41,7 +41,7 @@ exactamente200(X) :- ciudad(_, X, Y), Y =:= 200.
 % Realizar una regla que permita obtener el nombre de las ciudades que
 % que no tengan exactamente 200 empleados.
 % noExactamente200/1.
-noExactamente200(X) :- ciudad(_, X, Y), Y =\= 200.
+noExactamente200(X) :- not(exactamente200(X)).
 
 
 
